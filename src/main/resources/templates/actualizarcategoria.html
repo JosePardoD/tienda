@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<form th:action="@{/categorias/actualizar/{id} (id = ${categoria.id_Categoria})}" method="post">
+
+    <label for="id_Categoria">ID de Categoría</label>
+    <input type="number" id="id_Categoria" th:field="${categoria.id_Categoria}">
+
+    <label for="tipocategoria">Tipo de Categoría</label>
+    <input type="text" id="tipocategoria" th:field="${categoria.tipocategoria}">
+
+    <label for="descripcion">Descripción</label>
+    <input type="text" id="descripcion" th:field="${categoria.descripcion}">
+
+    <input type="submit" value="Actualizar Categoria">
+
+</form>
+</body>
+</html>

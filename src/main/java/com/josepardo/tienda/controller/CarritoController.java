@@ -43,13 +43,15 @@ public class CarritoController {
     @PostMapping("/productoventa")
     public String saveProductoVenta(ProductosVenta productosVenta, @RequestParam Integer iProductoVenta,@RequestParam Integer cantidad){
 
-        System.out.println(productosVenta);
+        //System.out.println(productosVenta);
         productoVentaService.saveProductoVenta(productosVenta);
 
         ProductosVenta productosVenta1=new ProductosVenta();
         ProductosVenta productosVenta2=new ProductosVenta();
         Optional<ProductosVenta> optionalProductosVenta=productoVentaService.getProductoVenta(iProductoVenta);
         productosVenta1=optionalProductosVenta.get();
+
+
 
 
         productosVenta2.setPrecio(productosVenta1.getProducto().getPrecio());

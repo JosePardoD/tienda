@@ -51,9 +51,6 @@ public class CarritoController {
         Optional<ProductosVenta> optionalProductosVenta=productoVentaService.getProductoVenta(iProductoVenta);
         productosVenta1=optionalProductosVenta.get();
 
-
-
-
         productosVenta2.setPrecio(productosVenta1.getProducto().getPrecio());
         productosVenta2.setTotal(productosVenta1.getProducto().getPrecio()*cantidad);
         productosVenta2.setVenta(productosVenta1.getVenta());

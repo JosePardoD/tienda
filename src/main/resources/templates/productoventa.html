@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/loyout" layout:decorate="navbar.html" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link th:href="@{/css/from.css}" rel="stylesheet" />
+    <title>Document</title>
+</head>
+<body>
+<div layout:fragment="content">
+
+    <div class="conteiner">
+
+
+        <form th:action="@{/productoventa}" method="post">
+
+            <label for="iProductoVenta">ID ProductoVenta</label>
+            <input type="number" id="iProductoVenta" th:field="${productosVenta.iProductoVenta}">
+
+            <label for="venta">Venta</label>
+            <select id="venta" th:field="${productosVenta.venta}">
+                <option th:each="venta:${ventas}"
+                        th:value="${venta.idVenta}"
+                        th:text="${venta.idVenta}"
+                />
+            </select>
+            <label for="idp">Producto</label>
+            <select id="idp" name="idp" th:field="${productosVenta.producto}">
+                <option th:each="producto:${productos}"
+                        th:value="${producto.idProducto}"
+                        th:text="${producto.nombreProducto}"
+                />
+            </select>
+
+            <label for="cantidad">Cantidad</label>
+            <input type="number" id="cantidad" th:field="${productosVenta.cantidad}">
+
+
+
+
+
+
+
+
+            <input type="submit" value="Agregar Producto">
+        </form>
+    </div>
+</div>
+</body>
+</html>

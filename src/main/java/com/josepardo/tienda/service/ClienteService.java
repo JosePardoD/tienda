@@ -1,6 +1,5 @@
 package com.josepardo.tienda.service;
 
-import com.josepardo.tienda.entity.Categorias;
 import com.josepardo.tienda.entity.Cliente;
 import com.josepardo.tienda.repository.ClienteRepository;
 import lombok.AllArgsConstructor;

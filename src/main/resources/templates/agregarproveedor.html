@@ -11,27 +11,29 @@
 </head>
 <body>
 <div layout:fragment="content">
-    <div class="conteiner">
-<form th:action="@{/cliente}" method="post">
 
-    <label for="idCliente">ID Cliente</label>
-    <input type="number" id="idCliente" th:field="${cliente.idCliente}">
+<div class="conteiner">
+<form th:action="@{/proveedor}" method="post">
 
-    <label for="nombreCliente">Nombre Cliente</label>
-    <input type="text" id="nombreCliente" th:field="${cliente.nombreCliente}">
+    <label for="idProveedor">ID Proveedor</label>
+    <input type="number" id="idProveedor" th:field="${proveedor.idProveedor}">
+
+    <label for="nombreProveedor">Nombre Proveedor</label>
+    <input type="text" id="nombreProveedor" th:field="${proveedor.nombreProveedor}">
 
     <label for="correo">Correo</label>
-    <input type="text" id="correo" th:field="${cliente.correo}">
-
-    <label for="telefono">Telefono</label>
-    <input type="text" id="telefono" th:field="${cliente.telefono}">
+    <input type="text" id="correo" th:field="${proveedor.correo}">
 
     <label for="direccion">Direccion</label>
-    <input type="number" id="direccion" th:field="${cliente.direccion}">
+    <input type="text" id="direccion" th:field="${proveedor.direccion}">
+
+    <label for="telefono">Telefono</label>
+    <input type="text" id="telefono" th:field="${proveedor.telefono}">
+
 
     <input type="submit" value="Agregar Categoría">
 </form>
-    </div>
+</div>
 </div>
 </body>
 </html>

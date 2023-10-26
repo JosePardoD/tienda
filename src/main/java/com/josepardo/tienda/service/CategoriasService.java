@@ -23,6 +23,8 @@ public class CategoriasService {
         return categoriasRepository.findAll();
     }
 
+
+
     public Categorias verCategoriaPorId(Integer id_Categoria) {
         return categoriasRepository.findById(id_Categoria).get();
     }

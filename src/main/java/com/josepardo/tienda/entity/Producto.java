@@ -3,9 +3,11 @@ package com.josepardo.tienda.entity;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 import jakarta.persistence.*;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -15,23 +17,22 @@ import java.util.List;
 public class Producto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idProducto;
+    private Integer idProducto;
     private String nombreProducto;
     private Double precio;
+    private Double cantidad;
     private String descripcion;
 
     @ManyToOne
     @JoinColumn(name = "categorias")
-    @JsonIgnoreProperties({"producto"})
+    @JsonIgnoreProperties({"producto","categorias","proveedor"})
     private Categorias categorias;
 
-    @ManyToMany(mappedBy = "productos")
-    @JsonIgnoreProperties({"producto","categorias"})
-    private List<Proveedor> proveedores;
+    @ManyToOne
+    @JoinColumn(name = "proveedor")
+    @JsonIgnoreProperties({"producto","categorias","proveedor"})
+    private Proveedor proveedor;
 
-    @ManyToMany(mappedBy = "productos")
-    @JsonIgnoreProperties({"producto","categorias","proveedores"})
-    private List<Venta> vemtas;
 
 }
 

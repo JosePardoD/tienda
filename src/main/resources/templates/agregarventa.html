@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/loyout" layout:decorate="navbar.html" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link th:href="@{/css/from.css}" rel="stylesheet" />
+    <title>Document</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="conteiner">
+        <form th:action="@{/venta}" method="post">
+
+            <label for="idVenta">ID Venta</label>
+            <input type="number" id="idVenta" th:field="${venta.idVenta}">
+
+            <label for="fechaVenta">Fecha Venta</label>
+            <input type="date" id="fechaVenta" th:field="${venta.fechaVenta}">
+
+            <select id="cliente" th:field="${venta.cliente}">
+                <option th:each="cliente:${clientes}"
+                        th:value="${cliente.idCliente}"
+                        th:text="${cliente.nombreCliente}"
+                />
+            </select>
+
+            <input type="submit" value="Agregar Categoría">
+        </form>
+    </div>
+</div>
+</body>
+</html>

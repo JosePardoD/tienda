@@ -27,12 +27,8 @@ public class Proveedor {
     private int telefono;
     private Date fechaVenta;
 
-    @ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.MERGE)
+    @OneToMany(mappedBy = "proveedor")
     @JsonIgnoreProperties({"proveedor"})
-    @JoinTable(
-            name = "productos_proveedor",
-            joinColumns = @JoinColumn(name = "id_proveedor",referencedColumnName = "idProveedor"),
-            inverseJoinColumns = @JoinColumn(name = "id_productos",referencedColumnName = "idProducto"))
-    private List<Producto> productos;
+    private List<Producto> Productos;
 
 }

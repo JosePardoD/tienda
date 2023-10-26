@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/loyout" layout:decorate="navbar.html" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/webjars/bootstrap/5.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/webjars/bootstrap-icons/1.10.3/font/bootstrap-icons.css">
+    <script src="/webjars/bootstrap/5.2.0/js/bootstrap.bundle.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+<div layout:fragment="content">
+
+    <table class="table table-striped">
+        <tr>
+            <th>Id Producto</th>
+            <th>Nombre Producto</th>
+            <th>precio</th>
+            <th>descripcion</th>
+            <th>CAtegoria</th>
+            <th>Editar</th>
+            <th>Borrar</th>
+
+
+        </tr>
+        <tr th:each="producto : ${productos}">
+            <td th:text="${producto.idProducto}"></td>
+            <td th:text="${producto.nombreProducto}"></td>
+            <td th:text="${producto.precio}"></td>
+            <td th:text="${producto.descripcion}"></td>
+            <td th:text="${producto.categorias.getId_Categoria()}"></td>
+
+            <td><a th:href="@{/producto/editar/{id} (id = ${producto.idProducto})}">
+                <button type="button" class="btn btn-light">Editar</button>
+            </a></td>
+            <td><a th:href="@{/producto/borrar/{id} (id = ${producto.idProducto})}">
+                <button type="button" class="btn btn-danger">Borrar</button>
+            </a></td>
+        </tr>
+
+    </table>
+
+
+
+
+    <a href="/agregarproducto">
+        <button type="button" class="btn btn-dark" >Agregar un nuevo proveedor</button>
+    </a>
+</div>
+</body>
+</html>

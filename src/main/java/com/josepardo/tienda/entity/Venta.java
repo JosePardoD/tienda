@@ -6,10 +6,13 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.stereotype.Component;
 
 import java.util.Date;
 import java.util.List;
 
+@Component
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -22,6 +25,8 @@ public class Venta {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idVenta;
     private String valorVenta;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date fechaVenta;
 
     @ManyToOne
@@ -29,13 +34,9 @@ public class Venta {
     @JsonIgnoreProperties({"venta"})
     private Cliente cliente;
 
-    @ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.MERGE)
-    @JsonIgnoreProperties({"proveedor"})
-    @JoinTable(
-            name = "productos_ventas",
-            joinColumns = @JoinColumn(name = "id_venta",referencedColumnName = "idventa"),
-            inverseJoinColumns = @JoinColumn(name = "id_productos",referencedColumnName = "idProducto"))
-    private List<Producto> productos;
+    @OneToMany(mappedBy = "venta")
+    @JsonIgnoreProperties({"venta"})
+    private List<ProductosVenta> productosVentas;
 
 
 }
